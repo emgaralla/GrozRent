@@ -29,7 +29,7 @@ const HeaderPopUp = () => {
 
   return (
     <div className={styles.main}>
-      <Link to="">Сдать в аренду</Link>
+      <Link to="/annoucment">Сдать в аренду</Link>
       <div ref={menuRef} className={styles.block} onClick={onClickPopUp}>
         <div className={styles.hrs}>
           <box-icon name="menu"></box-icon>
@@ -39,21 +39,19 @@ const HeaderPopUp = () => {
         </div>
       </div>
 
-      {token ? (
-        isOpen && (
-          <div className={styles.popUp}>
-            <Link to="/">Профиль</Link>
-            <Link to="/">Что-то</Link>
-          </div>
-        )
-      ) : (
-        isOpen && (
-          <div className={styles.popUp}>
-            <Link to="/login">Войти</Link>
-            <Link to="/auth">Зарегистрироваться</Link>
-          </div>
-        )
-      )}
+      {token
+        ? isOpen && (
+            <div className={styles.popUp}>
+              <Link to="/">Профиль</Link>
+              <Link to="/">Что-то</Link>
+            </div>
+          )
+        : isOpen && (
+            <div className={styles.popUp}>
+              <Link to="/login">Войти</Link>
+              <Link to="/auth">Зарегистрироваться</Link>
+            </div>
+          )}
     </div>
   );
 };
