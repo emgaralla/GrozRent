@@ -1,7 +1,9 @@
 import styles from "./HeaderPopUp.module.css";
 import user from "../../assets/user.png";
 import "boxicons";
+
 const HeaderPopUp = () => {
+  
   return (
     <div className={styles.block}>
       <div className={styles.hrs}>
