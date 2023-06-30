@@ -32,6 +32,7 @@ img {
 .main {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .main a {
@@ -47,4 +48,19 @@ img {
 padding: 10px;
 background: rgb(223, 219, 219);
 border-radius: 30px;
+}
+
+.popUp{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 0px 3px black;
+  padding: 20px;
+}
+
+.popUp a {
+  display: block;
+  padding: 5px;
 }
