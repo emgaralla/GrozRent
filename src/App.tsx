@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import SignIn from "./components/Sign/SignIn";
 import SignUp from "./components/Sign/SignUp";
 import Header from "./components/Header/Header";
-import Annoucment from "./components/Announcement/Annoucment";
+
 
 function App() {
   const location = useLocation();
@@ -20,6 +20,7 @@ function App() {
         <Route path="/login" element={<SignIn />}></Route>
         <Route path="/auth" element={<SignUp />}></Route>
       </Routes>
+      <Categories />
     </div>
   );
 }
