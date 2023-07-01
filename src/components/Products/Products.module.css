@@ -1,0 +1,10 @@
+.productsBlock {
+  width: 320px;
+  height: 410px;
+  border-radius: 10px;
+}
+.productsBlock img {
+  width: 320px;
+  height: 305px;
+  border-radius: 10px;
+}
