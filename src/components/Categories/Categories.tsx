@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../features/categoriesSlice";
 import { Link } from "react-router-dom";
 import styles from "./Categories.module.css";
-import { fetchProducts } from "../../features/productsSlice";
 
 const Categories = () => {
   const dispatch = useDispatch();
