@@ -4,11 +4,13 @@ import user from "../../assets/user.png";
 import "boxicons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 
 const HeaderPopUp = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const token = false;
+  const token = useSelector((state:RootState) => state.application.token)
 
   const onClickPopUp = () => {
     setIsOpen(!isOpen);
