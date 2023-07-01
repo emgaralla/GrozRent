@@ -1,0 +1,31 @@
+.footer {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* position: fixed; */
+
+}
+.footNav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  list-style: none;
+  font-size: 14px;
+  /* position: fixed; */
+}
+.footMenu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 500;
+  /* position: fixed; */
+}
+.footMenu img {
+  width: 20px;
+  height: 20px;
+}
