@@ -7,4 +7,5 @@
   width: 320px;
   height: 305px;
   border-radius: 10px;
+  object-fit: cover;
 }
