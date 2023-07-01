@@ -6,27 +6,26 @@ import Header from "./components/Header/Header";
 import Categories from "./components/Categories/Categories";
 import Annoucment from "./components/Announcement/Annoucment";
 import Footer from "./components/Footer/Footer";
+import Products from "./components/Products/Products";
 
 function App() {
   const location = useLocation();
   // console.log(location)
 
   return (
-    <div className='back'>
+    <div className="back">
       <Routes>
         <Route path="/annoucment" element={<Annoucment />} />
       </Routes>
 
-      {location.pathname !== "/annoucment" && <Header />}
-      {location.pathname !== "/annoucment" && <Categories />}
-      
-
+      {location.pathname === "/" && <Header />}
+      {location.pathname === "/" && <Categories />}
+      {location.pathname === "/" && <Products />}
+      {location.pathname === "/" && <Footer />}
       <Routes>
         <Route path="/login" element={<SignIn />}></Route>
         <Route path="/auth" element={<SignUp />}></Route>
       </Routes>
-
-      {location.pathname !== "/annoucment" && <Footer />}
     </div>
   );
 }
