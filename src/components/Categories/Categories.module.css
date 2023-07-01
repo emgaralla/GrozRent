@@ -1,0 +1,58 @@
+.categoryBlock{
+    display: flex;
+    justify-content: center;
+}
+
+.listBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+
+.listBlock:hover{
+    border-bottom: 2px solid rgb(218, 218, 218);
+    filter: contrast(100%);
+    color: black
+}
+
+.listBlock:hover img {
+    filter: contrast(100%);
+}
+
+.listBlock:hover .text {
+    color: black;
+}
+
+.listBlock:focus img {
+    filter: contrast(100%);
+}
+
+.listBlock:focus .text {
+    color: black;
+}
+
+
+.listBlock:focus{
+    border-bottom: 2px solid black;
+}
+
+.icon{
+    filter: contrast(10%);
+    width: 24px;
+    height: 24px;
+}
+
+
+.text{
+    list-style-type: none;
+    color: gray;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+

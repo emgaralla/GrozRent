@@ -1,13 +1,24 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import SignIn from "./components/Sign/SignIn";
 import SignUp from "./components/Sign/SignUp";
 import Header from "./components/Header/Header";
+import Categories from "./components/Categories/Categories";
+import Annoucment from "./components/Announcement/Annoucment";
 
 function App() {
+  const location = useLocation();
+
   return (
     <div>
-      <Header />
+      <Routes>
+        <Route path="/annoucment" element={<Annoucment />} />
+      </Routes>
+
+      {location.pathname !== "/annoucment" && <Header />}
+      {location.pathname !== "/annoucment" && <Categories />}
+      
+
       <Routes>
         <Route path="/login" element={<SignIn />}></Route>
         <Route path="/auth" element={<SignUp />}></Route>

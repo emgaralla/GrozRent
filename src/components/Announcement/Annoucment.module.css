@@ -1,0 +1,67 @@
+.body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header {
+  padding: 30px 100px 10px 140px;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  width: 600px;
+}
+
+.block img {
+  width: 150px;
+  height: 150px;
+}
+
+.leftBlock {
+  font-size: 20px;
+}
+
+.leftBlock h1 {
+  font-weight: 700;
+}
+
+.textBlock h4 {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.textBlock p {
+  font-weight: 500;
+  color: grey;
+}
+
+.footer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer hr {
+  border: 3px solid rgba(128, 128, 128, 0.384);
+}
+
+.footer a {
+  position: absolute;
+  right: 70px;
+  margin-top: 20px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  background: rgb(185, 0, 119);
+  background: linear-gradient(
+    90deg,
+    rgb(207, 6, 137) 0%,
+    rgba(255, 0, 99, 1) 100%
+  );
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
