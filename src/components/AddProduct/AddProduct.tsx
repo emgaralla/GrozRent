@@ -156,7 +156,7 @@ const AddProduct: React.FC = () => {
               type="primary"
               htmlType="submit"
             >
-              Submit
+              Добавить объявление
             </Button>
           </Form>
         </div>
