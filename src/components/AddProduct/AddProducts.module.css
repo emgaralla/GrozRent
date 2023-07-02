@@ -1,0 +1,95 @@
+.header {
+  padding: 30px 100px 10px 140px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  margin-top: 30px;
+}
+.oneCategory img {
+  width: 30px;
+}
+.oneCategory {
+  width: 170px;
+  height: 70px;
+  border-radius: 8px;
+  border: 1px solid rgba(193, 191, 191, 0.495);
+  margin: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+.oneCategory p {
+  color: black;
+  font-weight: 600;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body h1 {
+  font-weight: 600;
+}
+
+.oneCategory:focus {
+  border: 1px solid black;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 12px;
+  font-weight: 700;
+  color: grey;
+  border: 1px solid rgba(193, 191, 191, 0.495);
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.inputfil {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfil + label {
+  font-size: 12px;
+  font-weight: 700;
+  color: green;
+  border: 1px solid green;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: not-allowed;
+}
+
+.forma form{
+  
+  margin-top: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+.forma button {
+  margin-bottom: 50px;
+}
+.forma button:disabled {
+  margin-bottom: 50px;
+}
