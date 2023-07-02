@@ -9,7 +9,10 @@ import Footer from "./components/Footer/Footer";
 import Products from "./components/Products/Products";
 import AddProduct from "./components/AddProduct/AddProduct";
 import { useSelector } from "react-redux";
-
+import AboutUs from "./components/Footer/About Us/AboutUs";
+import Map from "./components/Footer/Map/Map";
+import Conditionss from "./components/Footer/Conditions/Conditionss";
+import Confidentiality from "./components/Footer/Confidentiality/Confidentiality";
 
 function App() {
   const location = useLocation();
@@ -32,6 +35,10 @@ function App() {
       {location.pathname === "/" && <Products />}
       {location.pathname === "/" && <Footer />}
       <Routes>
+        <Route path="/confidentiality" element={<Confidentiality />} />
+        <Route path="/conditions" element={<Conditionss />} />
+        <Route path="/map" element={<Map />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/addproduct" element={<AddProduct />}></Route>
         {!token ? (
           <Route path="/login" element={<SignIn />} />
