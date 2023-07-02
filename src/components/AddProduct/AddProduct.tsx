@@ -1,0 +1,168 @@
+import { Link } from "react-router-dom";
+import styles from "./AddProducts.module.css";
+import Logo from "../Logo";
+import { useDispatch, useSelector } from "react-redux";
+import { createProduct } from "../../features/productsSlice";
+import React, { useEffect, useState } from "react";
+import { fetchCategories } from "../../features/categoriesSlice";
+import { Button, Form, Input } from "antd";
+
+const AddProduct: React.FC = () => {
+  const [cat, setCat] = useState("");
+  const [title, setTitle] = useState("");
+  const [adress, setAdress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [price, setPrice] = useState("");
+  const [textArea, setTextArea] = useState("");
+  const [image, setImage] = useState("");
+  const [inpStyle, setInpstyle] = useState(styles.inputfile);
+  const [text, setText] = useState("Добавить изображение");
+
+  const handleChangeTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleChangeAdress = (e) => {
+    setAdress(e.target.value);
+  };
+  const handleChangePhone = (e) => {
+    setPhone(e.target.value);
+  };
+  const handleChangePrice = (e) => {
+    setPrice(e.target.value);
+  };
+  const handleChangeTextArea = (e) => {
+    setTextArea(e.target.value);
+  };
+
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories.categories);
+
+  const handleChange = (e) => {
+    setText("Вы успешно добавили изображение");
+    setInpstyle(styles.inputfil);
+    setImage(e.target.files[0]);
+  };
+  console.log(image);
+  const handleClick = (id) => {
+    setCat(id);
+  };
+
+  const handleSubmit = () => {
+    dispatch(
+      createProduct({
+        image,
+        categorie: cat,
+        text: textArea,
+        price,
+        title,
+        phone,
+        adress,
+      })
+    );
+  };
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
+
+  return (
+    <div className={styles.addProductBody}>
+      <div className={styles.header}>
+        <Link to={"/"}>
+          <Logo />
+        </Link>
+      </div>
+      <div className={styles.body}>
+        <h1>
+          Что из перечисленного точнее <br /> описывает ваш товар?
+        </h1>
+        <div className={styles.categories}>
+          {categories.map((item) => {
+            return (
+              <button
+                onClick={() => handleClick(item._id)}
+                className={styles.oneCategory}
+              >
+                <img src={item.image} alt="" />
+                <p>{item.name}</p>
+              </button>
+            );
+          })}
+        </div>
+        <div className={styles.upload}>
+          <input
+            className={inpStyle}
+            name="file"
+            id="file"
+            onChange={handleChange}
+            type="file"
+            multiple
+            disabled={inpStyle === styles.inputfil}
+          />
+          <label for="file">
+            <span>{text}</span>
+          </label>
+        </div>
+
+        <div className={styles.forma}>
+          <Form name="nest-messages" style={{ maxWidth: 600 }}>
+            <Form.Item rules={[{ required: true }]}>
+              <Input
+                value={title}
+                onChange={handleChangeTitle}
+                placeholder="Название"
+              />
+            </Form.Item>
+            <Form.Item label="" rules={[{ type: "email" }]}>
+              <Input
+                value={adress}
+                onChange={handleChangeAdress}
+                placeholder="Адресс"
+              />
+            </Form.Item>
+            <Form.Item>
+              <Input
+                value={price}
+                onChange={handleChangePrice}
+                placeholder="Цена"
+              />
+            </Form.Item>
+            <Form.Item>
+              <Input
+                value={phone}
+                onChange={handleChangePhone}
+                placeholder="Номер телефона"
+              />
+            </Form.Item>
+            <Form.Item>
+              <Input.TextArea
+                value={textArea}
+                onChange={handleChangeTextArea}
+                placeholder="Опишите вашу услугу"
+              />
+            </Form.Item>
+            <Button
+              disabled={
+                title.length === 0 ||
+                textArea.length === 0 ||
+                price.length === 0 ||
+                adress.length === 0 ||
+                phone.length === 0 ||
+                cat.length === 0 ||
+                image.length === 0
+              }
+              onClick={handleSubmit}
+              type="primary"
+              htmlType="submit"
+            >
+              Submit
+            </Button>
+          </Form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AddProduct;
