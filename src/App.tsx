@@ -10,6 +10,7 @@ import Products from "./components/Products/Products";
 import AddProduct from "./components/AddProduct/AddProduct";
 import { useSelector } from "react-redux";
 
+
 function App() {
   const location = useLocation();
   const token = useSelector((state) => state.application.token);
