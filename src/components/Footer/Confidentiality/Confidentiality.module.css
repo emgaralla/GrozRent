@@ -1,52 +1,50 @@
 .confImgBlock img {
-    width: 500px;
-    height: 333px;
-    object-fit: cover;
-    margin-top: 30px;
+  width: 500px;
+  height: 333px;
+  object-fit: cover;
+  margin-top: 30px;
 }
 
-.confBlock{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.confBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .confBlock p {
-    margin: 40px;
+  margin: 40px;
 }
 
-.conditions{
-    margin: 0px 10px;
+.conditions {
+  margin: 0px 10px;
 }
 
-.confTextBlock{
-    width: 650px;
-    margin-top: 70px;
-    margin-left: 100px;
-    display: flex;
-    flex-direction: column;
+.confTextBlock {
+  width: 650px;
+  margin-top: 70px;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
-.confTextBlock h3{
-    margin: 15px;
-    }
-
-.confTextBlock h4{
-margin: 10px;
+.confTextBlock h3 {
+  margin: 15px;
 }
 
-.listt li{
-    margin: 15px;
+.confTextBlock h4 {
+  margin: 10px;
 }
 
-.butScroll{
-    position: fixed;
-    left: 1300px;
-    top: 740px;
-    padding: 8px 15px;
-    border-radius: 5px;
-    border: 1px solid #0000;
-    cursor:alias;
+.listt li {
+  margin: 15px;
 }
 
- 
+.butScroll {
+  position: fixed;
+  left: 1300px;
+  top: 740px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: 1px solid #0000;
+  cursor: alias;
+}

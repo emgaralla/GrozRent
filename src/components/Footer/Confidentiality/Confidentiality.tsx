@@ -32,7 +32,10 @@ const Confidentiality = () => {
       <div className={styles.header}>
         <Header />
         {showScrollButton && (
-          <button className={styles.butScroll} onClick={handleClick}> ⇧ К началу</button>
+          <button className={styles.butScroll} onClick={handleClick}>
+            {" "}
+            ⇧ К началу
+          </button>
         )}
       </div>
       <div className={styles.mainContent}>
@@ -84,7 +87,7 @@ const Confidentiality = () => {
               соответствии с действующим законодательством), номер удостоверения
               личности или другая информация для подтверждения личности, селфи
               при подтверждении удостоверения личности, банковского счета или
-              платежной информации. Если вы не являетесь пользователем Airbnb,
+              платежной информации. Если вы не являетесь пользователем GrozRent,
               мы можем получить платежную информацию, связанную с вами,
               например, когда пользователь Grozrent предоставляет вашу платежную
               карту для завершения бронирования. Если мы предоставим нам копию
@@ -130,10 +133,10 @@ const Confidentiality = () => {
           </ul>
           <h4>
             2.3. Информация, автоматически собираемая при использовании
-            Платформы Airbnb и наших Платежных услуг.
+            Платформы GrozRent и наших Платежных услуг.
           </h4>
           <p>
-            Когда вы используете Платформу Airbnb и Платежные услуги, мы
+            Когда вы используете Платформу GrozRent и Платежные услуги, мы
             автоматически собираем личную и другую информацию. Эта информация
             может включать в себя:
           </p>
@@ -391,15 +394,19 @@ const Confidentiality = () => {
           <h3>6. КОНТАКТНАЯ ИНФОРМАЦИЯ И ОТВЕТСТВЕННЫЕ ЛИЦА GROZNET</h3>
           <p>
             Если у вас есть вопросы о Политике конфиденциальности Groznet,
-            свяжитесь с Groznet по телефону: 8(938) 000 10 27 или напишите на почту
-            <Link className={styles.conditions} to={"https://e.mail.ru/search/?q_from=timur.navrazov%40mail.ru"}>
-            timur.navrazov@mail.ru
+            свяжитесь с Groznet по телефону: 8(938) 000 10 27 или напишите на
+            почту
+            <Link
+              className={styles.conditions}
+              to={"https://e.mail.ru/search/?q_from=timur.navrazov%40mail.ru"}
+            >
+              timur.navrazov@mail.ru
             </Link>
           </p>
         </div>
       </div>
-        <Footer />
-        {/* <footer className={styles.footer}>
+      <Footer />
+      {/* <footer className={styles.footer}>
         <ul className={styles.footNav} >
         <li>© 2023, GrozRent.Inc</li>
         <li>·</li>
