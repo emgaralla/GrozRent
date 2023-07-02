@@ -8,6 +8,7 @@ import Annoucment from "./components/Announcement/Annoucment";
 import Footer from "./components/Footer/Footer";
 import Products from "./components/Products/Products";
 
+
 function App() {
   const location = useLocation();
   // console.log(location)

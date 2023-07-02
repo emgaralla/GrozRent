@@ -1,0 +1,52 @@
+.mainText{
+    width: 500px;
+    margin-left: 100px;
+}
+.mainText h1 {
+    margin: 20px;
+}
+.mainText p{
+    margin: 10px;
+}
+
+.imgText {
+    margin-left: 60px;
+    width: 700px;
+    margin-bottom: 77px;
+}
+.imgText img{
+    margin-top: 40px;
+    width: 550px;
+    margin-left: 18px;
+    object-fit: cover;
+}
+
+.imgText h1 {
+    margin: 20px;
+}
+.imgText p{
+    margin: 10px;
+}
+
+.conditionstext{
+    width: 650px;
+    margin-top: 70px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.conditionstext h1, h2, h3, h4, h5, p {
+    margin: 10px;
+}
+
+.butScroll{
+    position: fixed;
+    left: 1300px;
+    top: 740px;
+    padding: 8px 15px;
+    background-: #0000;
+    border-radius: 5px;
+    border: 1px solid #0000;
+    cursor:alias;
+}
