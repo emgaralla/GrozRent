@@ -30,7 +30,6 @@ export const createProduct = createAsyncThunk(
       formData.append("phone", phone);
       formData.append("price", price);
       formData.append("categorie", categorie);
-      console.log(image);
 
       const res = await fetch("http://localhost:4000/products", {
         method: "POST",

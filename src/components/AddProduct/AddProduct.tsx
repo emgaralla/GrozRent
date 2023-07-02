@@ -43,7 +43,6 @@ const AddProduct: React.FC = () => {
     setInpstyle(styles.inputfil);
     setImage(e.target.files[0]);
   };
-  console.log(image);
   const handleClick = (id) => {
     setCat(id);
   };

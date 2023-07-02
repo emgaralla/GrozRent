@@ -7,7 +7,6 @@ const Products = () => {
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
@@ -19,7 +18,7 @@ const Products = () => {
             <img src={`http://localhost:4000/${item.image[0].path}`} alt="" />
             <h4>{item.title}</h4>
             <p>{item.adress}</p>
-            <h5>{item.price} ₽</h5>
+            <h5>{item.price} ₽ сутки</h5>
           </div>
         );
       })}
