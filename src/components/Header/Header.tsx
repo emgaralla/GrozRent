@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import HeaderPopUp from "../HeaderPopUp/HeaderPopUp";
-import LiveSearch from "../LiveSearch/LiveSearch";
 import Logo from "../Logo";
 import styles from "./Header.module.css";
 
@@ -12,7 +11,6 @@ const Header = () => {
           <Logo />
         </Link>
       </div>
-      <LiveSearch />
       <HeaderPopUp />
     </div>
   );
