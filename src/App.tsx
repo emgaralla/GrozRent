@@ -13,6 +13,7 @@ import AboutUs from "./components/Footer/About Us/AboutUs";
 import Map from "./components/Footer/Map/Map";
 import Conditionss from "./components/Footer/Conditions/Conditionss";
 import Confidentiality from "./components/Footer/Confidentiality/Confidentiality";
+import Settings from "./components/Settings";
 
 function App() {
   const location = useLocation();
@@ -22,7 +23,10 @@ function App() {
     <div className="back">
       <Routes>
         {token ? (
-          <Route path="/annoucment" element={<Annoucment />} />
+          <>
+            <Route path="/annoucment" element={<Annoucment />} />
+            <Route path="/settings" element={<Settings />} />
+          </>
         ) : (
           <Route path="/annoucment" element={<Navigate to={"/login"} />} />
         )}

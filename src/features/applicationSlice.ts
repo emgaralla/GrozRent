@@ -57,6 +57,19 @@ export const authSignIn = createAsyncThunk(
   }
 );
 
+export const authSignOut = createAsyncThunk(
+  "auth/signout",
+  async (_, thunkAPI) => {
+    try {
+      localStorage.removeItem("token");
+      window.location.reload();
+      
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 const applicationSlice = createSlice({
   name: "apllication",
   initialState,

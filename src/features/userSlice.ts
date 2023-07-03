@@ -27,6 +27,38 @@ export const fetchUser = createAsyncThunk(
   }
 );
 
+export const handleChangeUser = createAsyncThunk(
+  "user-change/fetch",
+  async (
+    { nameValue, lastNameValue, emailValue, phoneValue },
+    thunkAPI: any
+  ) => {
+    try {
+      const res = await fetch("http://localhost:4000/user", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+        body: JSON.stringify({
+          name: nameValue,
+          lastName: lastNameValue,
+          email: emailValue,
+          phone: phoneValue,
+        }),
+      });
+      const user = await res.json();
+
+      if (user.error) {
+        return thunkAPI.rejectWithValue(user.error);
+      }
+      return user;
+    } catch (e) {
+      thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -34,7 +66,12 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchUser.fulfilled, (state, action) => {
       state.user = action.payload;
-    });
+    }),
+      builder.addCase(handleChangeUser.fulfilled, (state, action) => {
+console.log(action.meta);
+
+        state.user = action.payload;
+      });
   },
 });
 
