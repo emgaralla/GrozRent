@@ -18,10 +18,10 @@ const Settings = () => {
   const [editEmail, setEditEmail] = useState(true);
   const [editPhone, setEditPhone] = useState(true);
 
-  const [nameValue, setNameValue] = useState(user.name);
-  const [lastNameValue, setLastNameValue] = useState(user.lastName);
-  const [emailValue, setEmailValue] = useState(user.email);
-  const [phoneValue, setPhoneValue] = useState(user.phone);
+  const [nameValue, setNameValue] = useState("");
+  const [lastNameValue, setLastNameValue] = useState("");
+  const [emailValue, setEmailValue] = useState("");
+  const [phoneValue, setPhoneValue] = useState("");
 
   const onClickChangeUser = () => {
     dispatch(
@@ -31,12 +31,19 @@ const Settings = () => {
     setEditName(true);
     setEditLastName(true);
     setEditEmail(true);
-    setPhoneValue(true);
+    setEditPhone(true);
   };
 
   useEffect(() => {
     dispatch(fetchUser());
   }, []);
+
+  useEffect(() => {
+    setNameValue(user.name);
+    setLastNameValue(user.lastName);
+    setEmailValue(user.email);
+    setPhoneValue(user.phone);
+  }, [user]);
 
   return (
     <>
@@ -48,8 +55,11 @@ const Settings = () => {
               {editName ? (
                 <>
                   {user.name}
-                  <span className={styles.pointer}>
-                    <EditOutlined onClick={() => setEditName(false)} />
+                  <span
+                    className={styles.pointer}
+                    onClick={() => setEditName(false)}
+                  >
+                    <EditOutlined />
                   </span>
                 </>
               ) : (
@@ -74,8 +84,11 @@ const Settings = () => {
               {editLastName ? (
                 <>
                   {user.lastName}
-                  <span className={styles.pointer}>
-                    <EditOutlined onClick={() => setEditLastName(false)} />
+                  <span
+                    className={styles.pointer}
+                    onClick={() => setEditLastName(false)}
+                  >
+                    <EditOutlined />
                   </span>
                 </>
               ) : (
@@ -100,8 +113,11 @@ const Settings = () => {
               {editEmail ? (
                 <>
                   {user.email}
-                  <span className={styles.pointer}>
-                    <EditOutlined onClick={() => setEditEmail(false)} />
+                  <span
+                    className={styles.pointer}
+                    onClick={() => setEditEmail(false)}
+                  >
+                    <EditOutlined />
                   </span>
                 </>
               ) : (
@@ -109,7 +125,7 @@ const Settings = () => {
                   <Input
                     size="small"
                     value={emailValue}
-                    onChange={(e) => setNameValue(e.target.value)}
+                    onChange={(e) => setEmailValue(e.target.value)}
                   />
                   <CheckOutlined
                     className={styles.pointer}
@@ -126,8 +142,11 @@ const Settings = () => {
               {editPhone ? (
                 <>
                   {user.phone}
-                  <span className={styles.pointer}>
-                    <EditOutlined onClick={() => setEditPhone(false)} />
+                  <span
+                    className={styles.pointer}
+                    onClick={() => setEditPhone(false)}
+                  >
+                    <EditOutlined />
                   </span>
                 </>
               ) : (

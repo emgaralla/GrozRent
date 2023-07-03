@@ -25,10 +25,11 @@ function App() {
         {token ? (
           <>
             <Route path="/annoucment" element={<Annoucment />} />
-            <Route path="/settings" element={<Settings />} />
           </>
         ) : (
-          <Route path="/annoucment" element={<Navigate to={"/login"} />} />
+          <>
+            <Route path="/annoucment" element={<Navigate to={"/login"} />} />
+          </>
         )}
       </Routes>
 
@@ -45,9 +46,15 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/addproduct" element={<AddProduct />}></Route>
         {!token ? (
-          <Route path="/login" element={<SignIn />} />
+          <>
+            <Route path="/login" element={<SignIn />} />
+            <Route path="/settings" element={<Navigate to={"/"} />} />
+          </>
         ) : (
-          <Route path="/login" element={<Navigate to={"/"} />} />
+          <>
+            <Route path="/login" element={<Navigate to={"/"} />} />
+            <Route path="/settings" element={<Settings />} />
+          </>
         )}
         <Route path="/auth" element={<SignUp />}></Route>
       </Routes>

@@ -68,9 +68,11 @@ const userSlice = createSlice({
       state.user = action.payload;
     }),
       builder.addCase(handleChangeUser.fulfilled, (state, action) => {
-console.log(action.meta);
-
-        state.user = action.payload;
+        state.user.name = action.meta.arg.nameValue;
+        state.user.lastName = action.meta.arg.lastNameValue;
+        state.user.phone = action.meta.arg.phoneValue;
+        state.user.email = action.meta.arg.emailValue;
+        state.loading = false;
       });
   },
 });
