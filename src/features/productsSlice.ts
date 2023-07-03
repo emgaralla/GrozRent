@@ -21,9 +21,12 @@ export const fetchProducts = createAsyncThunk(
 export const createProduct = createAsyncThunk(
   "products/create",
   async ({ title, text, adress, phone, price, image, categorie }, thunkAPI) => {
+    console.log(image);
     try {
       const formData = new FormData();
-      formData.append("img", image);
+      formData.append("img", image[0]);
+      formData.append("img", image[1]);
+      formData.append("img", image[2]);
       formData.append("title", title);
       formData.append("text", text);
       formData.append("adress", adress);

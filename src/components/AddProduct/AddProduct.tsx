@@ -15,6 +15,7 @@ const AddProduct: React.FC = () => {
   const [price, setPrice] = useState("");
   const [textArea, setTextArea] = useState("");
   const [image, setImage] = useState("");
+  console.log(image)
   const [inpStyle, setInpstyle] = useState(styles.inputfile);
   const [text, setText] = useState("Добавить изображение");
 
@@ -41,7 +42,7 @@ const AddProduct: React.FC = () => {
   const handleChange = (e) => {
     setText("Вы успешно добавили изображение");
     setInpstyle(styles.inputfil);
-    setImage(e.target.files[0]);
+    setImage(e.target.files);
   };
   const handleClick = (id) => {
     setCat(id);
