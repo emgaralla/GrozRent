@@ -13,31 +13,32 @@ import AboutUs from "./components/Footer/About Us/AboutUs";
 import Map from "./components/Footer/Map/Map";
 import Conditionss from "./components/Footer/Conditions/Conditionss";
 import Confidentiality from "./components/Footer/Confidentiality/Confidentiality";
-
 import Settings from "./components/Settings";
 import OneProduct from "./components/OneProduct/OneProduct";
+import MyAd from "./components/MyAd";
+
 function App() {
   const location = useLocation();
   const token = useSelector((state) => state.application.token);
 
   return (
     <div className="back">
+      
       {location.pathname === "/" && <Header />}
+      {location.pathname === "/my-ad" && <Header />}
+      {location.pathname === "/settings" && <Header />}
       {location.pathname === "/login" && <Header />}
       {location.pathname === "/auth" && <Header />}
       {location.pathname === "/" && <Categories />}
       {location.pathname === "/" && <Products />}
       {location.pathname === "/" && <Footer />}
       <Routes>
-
-
-
         <Route path="/:id" element={<OneProduct />} />
-
-                  {token ? (
+        {token ? (
           <>
             <Route path="/annoucment" element={<Annoucment />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/my-ad" element={<MyAd />} />
             <Route path="/login" element={<Navigate to={"/"} />} />
           </>
         ) : (

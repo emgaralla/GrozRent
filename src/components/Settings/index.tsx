@@ -7,7 +7,6 @@ import { Descriptions, Input } from "antd";
 import EditOutlined from "@ant-design/icons/lib/icons/EditOutlined";
 import CheckOutlined from "@ant-design/icons/lib/icons/CheckOutlined";
 import CloseOutlined from "@ant-design/icons/lib/icons/CloseOutlined";
-import Header from "../Header/Header";
 
 const Settings = () => {
   const user = useSelector((state: RootState) => state.user.user);
@@ -47,7 +46,6 @@ const Settings = () => {
 
   return (
     <>
-      <Header />
       <div className={styles.main}>
         <div className={styles.settingsBlock}>
           <Descriptions title="Информация о пользователе">
