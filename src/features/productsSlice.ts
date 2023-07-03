@@ -27,6 +27,7 @@ export const createProduct = createAsyncThunk(
       formData.append("img", image[0]);
       formData.append("img", image[1]);
       formData.append("img", image[2]);
+      formData.append("img", image[3]);
       formData.append("title", title);
       formData.append("text", text);
       formData.append("adress", adress);
