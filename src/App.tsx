@@ -13,22 +13,15 @@ import AboutUs from "./components/Footer/About Us/AboutUs";
 import Map from "./components/Footer/Map/Map";
 import Conditionss from "./components/Footer/Conditions/Conditionss";
 import Confidentiality from "./components/Footer/Confidentiality/Confidentiality";
-import OneProduct from "./components/OneProduct/OneProduct";
 
+import Settings from "./components/Settings";
+import OneProduct from "./components/OneProduct/OneProduct";
 function App() {
   const location = useLocation();
   const token = useSelector((state) => state.application.token);
 
   return (
     <div className="back">
-      <Routes>
-        {token ? (
-          <Route path="/annoucment" element={<Annoucment />} />
-        ) : (
-          <Route path="/annoucment" element={<Navigate to={"/login"} />} />
-        )}
-      </Routes>
-
       {location.pathname === "/" && <Header />}
       {location.pathname === "/login" && <Header />}
       {location.pathname === "/auth" && <Header />}
@@ -36,17 +29,28 @@ function App() {
       {location.pathname === "/" && <Products />}
       {location.pathname === "/" && <Footer />}
       <Routes>
+
+
+
         <Route path="/:id" element={<OneProduct />} />
+
+                  {token ? (
+          <>
+            <Route path="/annoucment" element={<Annoucment />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/login" element={<Navigate to={"/"} />} />
+          </>
+        ) : (
+          <>
+            <Route path="/annoucment" element={<Navigate to={"/login"} />} />
+            <Route path="/login" element={<SignIn />} />
+          </>
+        )}
         <Route path="/confidentiality" element={<Confidentiality />} />
         <Route path="/conditions" element={<Conditionss />} />
         <Route path="/map" element={<Map />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/addproduct" element={<AddProduct />}></Route>
-        {!token ? (
-          <Route path="/login" element={<SignIn />} />
-        ) : (
-          <Route path="/login" element={<Navigate to={"/"} />} />
-        )}
         <Route path="/auth" element={<SignUp />}></Route>
       </Routes>
     </div>
