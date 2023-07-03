@@ -50,8 +50,7 @@ const HeaderPopUp = () => {
       {token
         ? isOpen && (
             <div className={styles.popUp}>
-              <Link to="/">Мои объявления</Link>
-              <Link to="/">Сообщения</Link>
+              <Link to="/my-ad">Мои объявления</Link>
               <Link to="/settings">Настройки</Link>
               <Link to="/" onClick={handleSignOut}>Выход</Link>
             </div>
