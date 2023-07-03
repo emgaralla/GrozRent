@@ -23,26 +23,11 @@ const Settings = () => {
   const [emailValue, setEmailValue] = useState(user.email);
   const [phoneValue, setPhoneValue] = useState(user.phone);
 
-  const handleChangeName = (e) => {
-    setNameValue(e.target.value);
-  };
-
-  const handleChangeLastName = (e) => {
-    setLastNameValue(e.target.value);
-  };
-
-  const handleChangeEmail = (e) => {
-    setEmailValue(e.target.value);
-  };
-
-  const handleChangePhone = (e) => {
-    setPhoneValue(e.target.value);
-  };
-
   const onClickChangeUser = () => {
     dispatch(
       handleChangeUser({ nameValue, lastNameValue, emailValue, phoneValue })
     );
+
     setEditName(true);
     setEditLastName(true);
     setEditEmail(true);
@@ -72,7 +57,7 @@ const Settings = () => {
                   <Input
                     size="small"
                     value={nameValue}
-                    onChange={handleChangeName}
+                    onChange={(e) => setNameValue(e.target.value)}
                   />
                   <CheckOutlined
                     className={styles.pointer}
@@ -98,7 +83,7 @@ const Settings = () => {
                   <Input
                     size="small"
                     value={lastNameValue}
-                    onChange={handleChangeLastName}
+                    onChange={(e) => setLastNameValue(e.target.value)}
                   />
                   <CheckOutlined
                     className={styles.pointer}
@@ -124,7 +109,7 @@ const Settings = () => {
                   <Input
                     size="small"
                     value={emailValue}
-                    onChange={handleChangeEmail}
+                    onChange={(e) => setNameValue(e.target.value)}
                   />
                   <CheckOutlined
                     className={styles.pointer}
@@ -150,7 +135,7 @@ const Settings = () => {
                   <Input
                     size="small"
                     value={phoneValue}
-                    onChange={handleChangePhone}
+                    onChange={(e) => setPhoneValue(e.target.value)}
                   />
                   <CheckOutlined
                     className={styles.pointer}
