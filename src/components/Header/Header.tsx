@@ -12,7 +12,6 @@ const Header = () => {
           <Logo />
         </Link>
       </div>
-      <LiveSearch />
       <HeaderPopUp />
     </div>
   );
