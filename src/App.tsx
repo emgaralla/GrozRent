@@ -13,7 +13,9 @@ import AboutUs from "./components/Footer/About Us/AboutUs";
 import Map from "./components/Footer/Map/Map";
 import Conditionss from "./components/Footer/Conditions/Conditionss";
 import Confidentiality from "./components/Footer/Confidentiality/Confidentiality";
+
 import Settings from "./components/Settings";
+import OneProduct from "./components/OneProduct/OneProduct";
 import MyAd from "./components/MyAd";
 
 function App() {
@@ -31,7 +33,12 @@ function App() {
       {location.pathname === "/" && <Products />}
       {location.pathname === "/" && <Footer />}
       <Routes>
-        {token ? (
+
+
+
+        <Route path="/:id" element={<OneProduct />} />
+
+                  {token ? (
           <>
             <Route path="/annoucment" element={<Annoucment />} />
             <Route path="/settings" element={<Settings />} />
