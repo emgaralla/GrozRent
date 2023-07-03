@@ -21,18 +21,6 @@ function App() {
 
   return (
     <div className="back">
-      <Routes>
-        {token ? (
-          <>
-            <Route path="/annoucment" element={<Annoucment />} />
-          </>
-        ) : (
-          <>
-            <Route path="/annoucment" element={<Navigate to={"/login"} />} />
-          </>
-        )}
-      </Routes>
-
       {location.pathname === "/" && <Header />}
       {location.pathname === "/login" && <Header />}
       {location.pathname === "/auth" && <Header />}
@@ -40,22 +28,23 @@ function App() {
       {location.pathname === "/" && <Products />}
       {location.pathname === "/" && <Footer />}
       <Routes>
+        {token ? (
+          <>
+            <Route path="/annoucment" element={<Annoucment />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/login" element={<Navigate to={"/"} />} />
+          </>
+        ) : (
+          <>
+            <Route path="/annoucment" element={<Navigate to={"/login"} />} />
+            <Route path="/login" element={<SignIn />} />
+          </>
+        )}
         <Route path="/confidentiality" element={<Confidentiality />} />
         <Route path="/conditions" element={<Conditionss />} />
         <Route path="/map" element={<Map />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/addproduct" element={<AddProduct />}></Route>
-        {!token ? (
-          <>
-            <Route path="/login" element={<SignIn />} />
-            <Route path="/settings" element={<Navigate to={"/"} />} />
-          </>
-        ) : (
-          <>
-            <Route path="/login" element={<Navigate to={"/"} />} />
-            <Route path="/settings" element={<Settings />} />
-          </>
-        )}
         <Route path="/auth" element={<SignUp />}></Route>
       </Routes>
     </div>
