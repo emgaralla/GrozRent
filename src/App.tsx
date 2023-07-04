@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 import SignIn from "./components/Sign/SignIn";
 import SignUp from "./components/Sign/SignUp";
 import Header from "./components/Header/Header";
@@ -10,13 +10,16 @@ import Products from "./components/Products/Products";
 import AddProduct from "./components/AddProduct/AddProduct";
 import { useSelector } from "react-redux";
 import AboutUs from "./components/Footer/About Us/AboutUs";
-import Map from "./components/Footer/Map/Map";
 import Conditionss from "./components/Footer/Conditions/Conditionss";
 import Confidentiality from "./components/Footer/Confidentiality/Confidentiality";
+import ContentOnCat from "./components/Categories/ContentOnCat";
+import Otzivs from "./components/Footer/Otzivs/Otzivs";
 
 function App() {
   const location = useLocation();
   const token = useSelector((state) => state.application.token);
+    
+  
 
   return (
     <div className="back">
@@ -37,9 +40,10 @@ function App() {
       <Routes>
         <Route path="/confidentiality" element={<Confidentiality />} />
         <Route path="/conditions" element={<Conditionss />} />
-        <Route path="/map" element={<Map />} />
+        <Route path="/otzivs" element={<Otzivs />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/addproduct" element={<AddProduct />}></Route>
+        <Route path="/category/:id" element={<ContentOnCat />}/>
         {!token ? (
           <Route path="/login" element={<SignIn />} />
         ) : (
