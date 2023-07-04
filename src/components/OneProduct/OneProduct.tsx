@@ -28,7 +28,7 @@ const OneProduct = () => {
             <div className={styles.imgBlock1}>
               {product.image.map((item) => {
                 return (
-                    <img src={`http://localhost:4000/${item.path}`} alt="" />
+                  <img src={`http://localhost:4000/${item.path}`} alt="" />
                 );
               })}
             </div>

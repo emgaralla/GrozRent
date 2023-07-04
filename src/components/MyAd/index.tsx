@@ -6,6 +6,10 @@ import styles from "./MyAd.module.css";
 import { Link } from "react-router-dom";
 import EditOutlined from "@ant-design/icons/lib/icons/EditOutlined";
 import { CloseOutlined } from "@ant-design/icons";
+import { fetchUserProducts} from "../../features/productsSlice";
+import styles from "./MyAd.module.css";
+import { Link } from "react-router-dom";
+import EditOutlined from "@ant-design/icons/lib/icons/EditOutlined";
 
 const MyAd = () => {
   const userProducts = useSelector(
