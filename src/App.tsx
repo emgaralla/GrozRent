@@ -16,6 +16,7 @@ import Confidentiality from "./components/Footer/Confidentiality/Confidentiality
 import Settings from "./components/Settings";
 import OneProduct from "./components/OneProduct/OneProduct";
 import MyAd from "./components/MyAd";
+import EditingMyAd from "./components/MyAd/EditingMyAd";
 
 function App() {
   const location = useLocation();
@@ -23,7 +24,6 @@ function App() {
 
   return (
     <div className="back">
-      
       {location.pathname === "/" && <Header />}
       {location.pathname === "/my-ad" && <Header />}
       {location.pathname === "/settings" && <Header />}
@@ -39,13 +39,21 @@ function App() {
             <Route path="/annoucment" element={<Annoucment />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/my-ad" element={<MyAd />} />
-            
             <Route path="/login" element={<Navigate to={"/"} />} />
+            <Route
+              path="/my-ad/:id"
+              element={
+                <>
+                  <Header /> <EditingMyAd />
+                </>
+              }
+            />
           </>
         ) : (
           <>
             <Route path="/annoucment" element={<Navigate to={"/login"} />} />
             <Route path="/login" element={<SignIn />} />
+            <Route path="/my-ad/:id" element={<Navigate to={"/"} />} />
           </>
         )}
         <Route path="/confidentiality" element={<Confidentiality />} />

@@ -1,0 +1,61 @@
+.main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.myAdBlock {
+  width: 200px;
+  cursor: pointer;
+  margin: 15px;
+  padding: 15px;
+  box-shadow: 0px 0px 5px 1px black;
+  border-radius: 15px;
+}
+.myAdBlock span {
+  display: flex;
+  float: right;
+}
+.myAdBlock a {
+  text-decoration: none;
+  color: black;
+}
+.myAdBlock .img {
+  width: 150px;
+}
+.myAdBlock h4 {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: inherit;
+}
+.address {
+  color: gray;
+  margin: 10px;
+}
+
+.fullAd{
+  text-align: center;
+}
+
+.fullAd h4 {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: inherit;
+}
+
+.fullAd .img{
+  width: 200px;
+  user-select: none;
+}
+.removeIcon{
+  display: flex;
+  cursor: pointer;
+  float: right;
+}
+.fullAdBlock{
+  width: 250px;
+}
+.fullAd span{
+  margin: 5px;
+  color: black;
+  cursor: pointer;
+}
