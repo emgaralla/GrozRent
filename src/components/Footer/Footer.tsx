@@ -13,7 +13,7 @@ export default function Footer() {
         <li>·</li>
         <Link className={styles.link} to={"/conditions"}>Условия</Link>
         <li>·</li>
-        <Link className={styles.link} to={'/map'}>Карта сайта</Link>
+        <Link className={styles.link} to={'/otzivs'}>Отзывы</Link>
       </ul>
       <ul className={styles.footMenu}>
         <div className={styles.language}>
