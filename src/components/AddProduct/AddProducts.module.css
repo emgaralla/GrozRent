@@ -19,6 +19,7 @@
   margin: 10px;
   background: transparent;
   cursor: pointer;
+  padding: 10px;
 }
 .oneCategory p {
   color: black;
@@ -80,8 +81,7 @@
   cursor: not-allowed;
 }
 
-.forma form{
-  
+.forma form {
   margin-top: 10px;
   text-align: center;
   width: 300px;
