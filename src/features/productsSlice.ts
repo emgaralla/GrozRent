@@ -54,6 +54,41 @@ export const fetchUserProducts = createAsyncThunk(
   }
 );
 
+export const handleChangeAd = createAsyncThunk(
+  "user-product-change/fetch",
+  async (
+    { id, titleValue, phoneValue, textValue, priceValue, addressValue },
+    thunkAPI: any
+  ) => {
+    console.log(id);
+
+    try {
+      const res = await fetch(`http://localhost:4000/user-product/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+        body: JSON.stringify({
+          title: titleValue,
+          phone: phoneValue,
+          text: textValue,
+          price: priceValue,
+          adress: addressValue,
+        }),
+      });
+      const user = await res.json();
+
+      if (user.error) {
+        return thunkAPI.rejectWithValue(user.error);
+      }
+      return user;
+    } catch (e) {
+      thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
 export const fetchDeleteImage = createAsyncThunk(
   "delete-image/fetch",
   async ({ id, filename }, thunkAPI: any) => {
@@ -139,6 +174,14 @@ const productsSlice = createSlice({
         state.oneProduct.image = state.oneProduct.image.filter(
           (item) => item.filename !== action.meta.arg.filename
         );
+      })
+      .addCase(handleChangeAd.fulfilled, (state, action) => {
+        state.oneProduct.title = action.meta.arg.titleValue;
+        state.oneProduct.phone = action.meta.arg.phoneValue;
+        state.oneProduct.text = action.meta.arg.textValue;
+        state.oneProduct.price = action.meta.arg.priceValue;
+        state.oneProduct.adress = action.meta.arg.addressValue;
+        state.loading = false;
       });
   },
 });
