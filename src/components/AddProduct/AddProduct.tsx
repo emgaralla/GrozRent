@@ -41,7 +41,7 @@ const AddProduct: React.FC = () => {
   const handleChange = (e) => {
     setText("Вы успешно добавили изображение");
     setInpstyle(styles.inputfil);
-    setImage(e.target.files[0]);
+    setImage(e.target.files);
   };
   const handleClick = (id) => {
     setCat(id);

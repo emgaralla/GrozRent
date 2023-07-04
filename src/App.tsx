@@ -14,6 +14,9 @@ import Conditionss from "./components/Footer/Conditions/Conditionss";
 import Confidentiality from "./components/Footer/Confidentiality/Confidentiality";
 import ContentOnCat from "./components/Categories/ContentOnCat";
 import Otzivs from "./components/Footer/Otzivs/Otzivs";
+import Settings from "./components/Settings";
+import OneProduct from "./components/OneProduct/OneProduct";
+import MyAd from "./components/MyAd";
 
 function App() {
   const location = useLocation();
@@ -23,21 +26,29 @@ function App() {
 
   return (
     <div className="back">
-      <Routes>
-        {token ? (
-          <Route path="/annoucment" element={<Annoucment />} />
-        ) : (
-          <Route path="/annoucment" element={<Navigate to={"/login"} />} />
-        )}
-      </Routes>
-
       {location.pathname === "/" && <Header />}
+      {location.pathname === "/my-ad" && <Header />}
+      {location.pathname === "/settings" && <Header />}
       {location.pathname === "/login" && <Header />}
       {location.pathname === "/auth" && <Header />}
       {location.pathname === "/" && <Categories />}
       {location.pathname === "/" && <Products />}
       {location.pathname === "/" && <Footer />}
       <Routes>
+        <Route path="/:id" element={<OneProduct />} />
+        {token ? (
+          <>
+            <Route path="/annoucment" element={<Annoucment />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/my-ad" element={<MyAd />} />
+            <Route path="/login" element={<Navigate to={"/"} />} />
+          </>
+        ) : (
+          <>
+            <Route path="/annoucment" element={<Navigate to={"/login"} />} />
+            <Route path="/login" element={<SignIn />} />
+          </>
+        )}
         <Route path="/confidentiality" element={<Confidentiality />} />
         <Route path="/conditions" element={<Conditionss />} />
         <Route path="/otzivs" element={<Otzivs />} />

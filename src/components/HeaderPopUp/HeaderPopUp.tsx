@@ -4,12 +4,14 @@ import user from "../../assets/user.png";
 import "boxicons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../app/store";
+import { authSignOut } from "../../features/applicationSlice";
 
 const HeaderPopUp = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const dispatch = useDispatch<AppDispatch>()
   const token = useSelector((state:RootState) => state.application.token)
 
   const onClickPopUp = () => {
@@ -29,6 +31,10 @@ const HeaderPopUp = () => {
     };
   }, []);
 
+  const handleSignOut = () => {
+    dispatch(authSignOut())
+  }
+
   return (
     <div className={styles.main}>
       <Link to="/annoucment">Сдать в аренду</Link>
@@ -44,8 +50,9 @@ const HeaderPopUp = () => {
       {token
         ? isOpen && (
             <div className={styles.popUp}>
-              <Link to="/">Профиль</Link>
-              <Link to="/">Что-то</Link>
+              <Link to="/my-ad">Мои объявления</Link>
+              <Link to="/settings">Настройки</Link>
+              <Link to="/" onClick={handleSignOut}>Выход</Link>
             </div>
           )
         : isOpen && (
