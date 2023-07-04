@@ -21,7 +21,6 @@
 }
 .myAdBlock .img {
   width: 150px;
-  border-radius: 3px;
 }
 .myAdBlock h4 {
   font-weight: 600;
@@ -46,7 +45,6 @@
 .fullAd .img{
   width: 200px;
   user-select: none;
-  border-radius: 3px;
 }
 .removeIcon{
   display: flex;
@@ -60,8 +58,4 @@
   margin: 5px;
   color: black;
   cursor: pointer;
-}
-.fullAd input{
-width: 200px;
-display: inline-block;
 }
