@@ -1,17 +1,23 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import styles from "./Categories.module.css"
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Categories from './Categories'
+import { fetchProducts } from '../../features/productsSlice'
 
 const ContentOnCat = () => {
     const id = useParams();
+    const dispatch = useDispatch()
     
     const products = useSelector((state: any) => state.products.products)
     
     const categoryProducts = products.filter((item: any) => item.categorie === id.id)
+
+    useEffect(() => {
+      dispatch(fetchProducts())
+    })
     
   return (
     <div>
