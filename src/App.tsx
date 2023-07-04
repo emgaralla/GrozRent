@@ -23,7 +23,6 @@ function App() {
 
   return (
     <div className="back">
-      
       {location.pathname === "/" && <Header />}
       {location.pathname === "/my-ad" && <Header />}
       {location.pathname === "/settings" && <Header />}
