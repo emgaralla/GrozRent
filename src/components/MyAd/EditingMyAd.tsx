@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchDeleteImage,
   handleChangeAd,
+  handleChangeImageProduct,
   oneProductsFind,
 } from "../../features/productsSlice";
 import { RootState } from "../../app/store";
@@ -18,7 +19,7 @@ const EditingMyAd = () => {
 
   const dispatch = useDispatch();
 
-  const { loading, oneProduct } = useSelector(
+  const { loading, oneProduct, upload } = useSelector(
     (state: RootState) => state.products
   );
 
@@ -34,9 +35,11 @@ const EditingMyAd = () => {
   const [priceEditing, setPriceEditing] = useState(true);
   const [addressEditing, setAddressEditing] = useState(true);
 
+  const [image, setImage] = useState("");
+
   useEffect(() => {
     dispatch(oneProductsFind({ id }));
-  }, []);
+  }, [upload]);
 
   useEffect(() => {
     setTitleValue(oneProduct.title);
@@ -67,6 +70,16 @@ const EditingMyAd = () => {
     setPriceEditing(true);
     setAddressEditing(true);
   };
+
+  const handleChange = (e) => {
+    setImage(e.target.files);
+  };
+
+  useEffect(() => {
+    if (image) {
+      dispatch(handleChangeImageProduct({ id, image }));
+    }
+  }, [image]);
 
   return (
     <div className={styles.fullAd}>
@@ -178,7 +191,10 @@ const EditingMyAd = () => {
       <div className={styles.main}>
         {!loading ? (
           oneProduct.image.map((item) => (
-            <div key={item.filename} className={styles.fullAdBlock}>
+            <div
+              key={Math.floor(Math.random() * 9999999999)}
+              className={styles.fullAdBlock}
+            >
               <span
                 className={styles.removeIcon}
                 onClick={() => handleDeleteImg(item.filename)}
@@ -195,6 +211,15 @@ const EditingMyAd = () => {
         ) : (
           <div>Loading</div>
         )}
+      </div>
+      <div>
+        <input
+          name="file"
+          id="file"
+          onChange={handleChange}
+          type="file"
+          multiple
+        />
       </div>
     </div>
   );

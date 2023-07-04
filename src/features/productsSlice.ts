@@ -6,6 +6,7 @@ const initialState = {
   userProducts: [],
   user: {},
   loading: true,
+  upload: false,
 };
 
 export const oneProductsFind = createAsyncThunk(
@@ -60,8 +61,6 @@ export const handleChangeAd = createAsyncThunk(
     { id, titleValue, phoneValue, textValue, priceValue, addressValue },
     thunkAPI: any
   ) => {
-    console.log(id);
-
     try {
       const res = await fetch(`http://localhost:4000/user-product/${id}`, {
         method: "PATCH",
@@ -110,6 +109,36 @@ export const fetchDeleteImage = createAsyncThunk(
       return data;
     } catch (e) {
       thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
+export const handleChangeImageProduct = createAsyncThunk(
+  "user-product/patch",
+  async ({ id, image }, thunkAPI) => {
+    try {
+      const formData = new FormData();
+      formData.append("img", image[0]);
+      formData.append("img", image[1]);
+      formData.append("img", image[2]);
+      formData.append("img", image[3]);
+      formData.append("img", image[4]);
+
+      const res = await fetch(
+        `http://localhost:4000/user-product-add-image/${id}`,
+        {
+          method: "PATCH",
+          body: formData,
+          headers: {
+            Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+          },
+        }
+      );
+
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -182,6 +211,12 @@ const productsSlice = createSlice({
         state.oneProduct.price = action.meta.arg.priceValue;
         state.oneProduct.adress = action.meta.arg.addressValue;
         state.loading = false;
+      })
+      .addCase(handleChangeImageProduct.pending, (state) => {
+        state.upload = true;
+      })
+      .addCase(handleChangeImageProduct.fulfilled, (state) => {
+        state.upload = false;
       });
   },
 });
