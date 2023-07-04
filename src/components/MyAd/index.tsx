@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
-import { fetchUserProducts} from "../../features/productsSlice";
+import { fetchDeleteProduct, fetchUserProducts } from "../../features/productsSlice";
 import styles from "./MyAd.module.css";
 import { Link } from "react-router-dom";
 import EditOutlined from "@ant-design/icons/lib/icons/EditOutlined";
+import { CloseOutlined } from "@ant-design/icons";
 
 const MyAd = () => {
   const userProducts = useSelector(
@@ -16,11 +17,17 @@ const MyAd = () => {
     dispatch(fetchUserProducts());
   }, []);
 
+  const handleDeleteProduct = (id) => {
+    dispatch(fetchDeleteProduct(id));
+    
+  };
+
   return (
     <div className={styles.main}>
       {userProducts.map((item) => {
         return (
           <div className={styles.myAdBlock}>
+            <CloseOutlined onClick={() => handleDeleteProduct(item._id)}/>
             <Link to={`/my-ad/${item._id}`}>
               <EditOutlined />
             </Link>
