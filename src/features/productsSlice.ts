@@ -113,6 +113,25 @@ export const fetchDeleteImage = createAsyncThunk(
   }
 );
 
+export const fetchDeleteProduct = createAsyncThunk(
+  "delete-product/fetch",
+  async (id, thunkAPI: any) => {
+    try {
+      const res = await fetch(`http://localhost:4000/user-product/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+      });
+      const data = await res.json();
+      return data;
+    } catch (e) {
+      thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
 export const handleChangeImageProduct = createAsyncThunk(
   "user-product/patch",
   async ({ id, image }, thunkAPI) => {
@@ -217,6 +236,14 @@ const productsSlice = createSlice({
       })
       .addCase(handleChangeImageProduct.fulfilled, (state) => {
         state.upload = false;
+      })
+      .addCase(fetchDeleteProduct.fulfilled, (state, action) => {
+        console.log(action.meta.arg);
+        console.log(state.userProducts);
+
+        state.userProducts = state.userProducts.filter(
+          (item) => item._id !== action.meta.arg
+        );
       });
   },
 });
