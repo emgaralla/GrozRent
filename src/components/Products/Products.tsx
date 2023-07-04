@@ -10,7 +10,6 @@ const Products = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate("/");
 
-  console.log(products)
   const handleClick = (id) => {
     navigate(id);
   };
