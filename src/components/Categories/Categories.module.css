@@ -82,9 +82,10 @@
   line-height: inherit;
 }
 
-.productsBlock p {
-  color: grey;
-}
+  .linkkk{
+    text-decoration: none;
+    color: black;
+  }
 
 .productsBlock:hover {
   box-shadow: 0px 4px 17px 0px rgba(34, 60, 80, 0.2);
