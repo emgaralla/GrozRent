@@ -191,10 +191,7 @@ const EditingMyAd = () => {
       <div className={styles.main}>
         {!loading ? (
           oneProduct.image.map((item) => (
-            <div
-              key={Math.floor(Math.random() * 9999999999)}
-              className={styles.fullAdBlock}
-            >
+            <div key={item.filename} className={styles.fullAdBlock}>
               <span
                 className={styles.removeIcon}
                 onClick={() => handleDeleteImg(item.filename)}

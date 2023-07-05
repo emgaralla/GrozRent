@@ -238,9 +238,6 @@ const productsSlice = createSlice({
         state.upload = false;
       })
       .addCase(fetchDeleteProduct.fulfilled, (state, action) => {
-        console.log(action.meta.arg);
-        console.log(state.userProducts);
-
         state.userProducts = state.userProducts.filter(
           (item) => item._id !== action.meta.arg
         );
