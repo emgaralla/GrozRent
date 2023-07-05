@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import styles from "./Categories.module.css"
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
@@ -17,7 +17,7 @@ const ContentOnCat = () => {
 
     useEffect(() => {
       dispatch(fetchProducts())
-    })
+    }, [])
     
   return (
     <div>
@@ -26,12 +26,14 @@ const ContentOnCat = () => {
     <div className={styles.products}>
         {categoryProducts.map((item: any) => {
                   return (
+                    <Link className={styles.linkkk} to={`/${item._id}`}> 
                     <div className={styles.productsBlock}>
                       <img src={`http://localhost:4000/${item.image[0].path}`} alt="" />
                       <h4>{item.title}</h4>
                       <p>{item.adress}</p>
                       <h5>{item.price} ₽ сутки</h5>
                     </div>
+                    </Link>
                   );
         })}
         </div>
