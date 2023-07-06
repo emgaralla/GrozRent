@@ -174,7 +174,7 @@ export const handleChangeImageProduct = createAsyncThunk(
 
 export const createProduct = createAsyncThunk<ReturnType<any>, createImg>(
   "products/create",
-  async ({ title, text, address, phone, price, image, categorie }, thunkAPI) => {
+  async ({ title, text, adress, phone, price, image, categorie }, thunkAPI) => {
     try {
       const formData = new FormData();
       formData.append("img", image[0]);
@@ -184,7 +184,7 @@ export const createProduct = createAsyncThunk<ReturnType<any>, createImg>(
       formData.append("img", image[4]);
       formData.append("title", title);
       formData.append("text", text);
-      formData.append("adress", address);
+      formData.append("adress", adress);
       formData.append("phone", phone);
       formData.append("price", price);
       formData.append("categorie", categorie);
