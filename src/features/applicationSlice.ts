@@ -1,6 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export interface ApplicationItem {
+  error: null | string;
+  signinUp: boolean;
+  signinIn: boolean;
+  token: null | string | unknown;
+}
+
+const initialState: ApplicationItem = {
   error: null,
   signinUp: false,
   signinIn: false,
@@ -75,7 +82,7 @@ const applicationSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(authSignUp.pending, (state) => {
-        state.signingUp = true;
+        state.signinUp = true;
       })
       .addCase(authSignUp.rejected, (state, action) => {
         state.signinUp = false;

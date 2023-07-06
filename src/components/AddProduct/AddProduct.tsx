@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./AddProducts.module.css";
 import Logo from "../Logo";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,48 +6,52 @@ import { createProduct } from "../../features/productsSlice";
 import React, { useEffect, useState } from "react";
 import { fetchCategories } from "../../features/categoriesSlice";
 import { Button, Form, Input } from "antd";
+import { AppDispatch } from "../../app/store";
 
 const AddProduct: React.FC = () => {
-  const [cat, setCat] = useState("");
-  const [title, setTitle] = useState("");
-  const [adress, setAdress] = useState("");
-  const [phone, setPhone] = useState("");
-  const [price, setPrice] = useState("");
-  const [textArea, setTextArea] = useState("");
-  const [image, setImage] = useState("");
-  const [inpStyle, setInpstyle] = useState(styles.inputfile);
-  const [text, setText] = useState("Добавить изображение");
+  type ImageFile = File | null;
 
-  const handleChangeTitle = (e) => {
+  const [cat, setCat] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [price, setPrice] = useState<string>("");
+  const [textArea, setTextArea] = useState<string>("");
+  const [image, setImage] = useState<ImageFile>(null);
+  const [inpStyle, setInpStyle] = useState<string>(styles.inputfile);
+  const [text, setText] = useState<string>("Добавить изображение");
+
+  const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
   };
 
-  const handleChangeAdress = (e) => {
-    setAdress(e.target.value);
+  const handleChangeAdress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress(e.target.value);
   };
-  const handleChangePhone = (e) => {
+  const handleChangePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhone(e.target.value);
   };
-  const handleChangePrice = (e) => {
+  const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPrice(e.target.value);
   };
-  const handleChangeTextArea = (e) => {
+  const handleChangeTextArea = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTextArea(e.target.value);
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const categories = useSelector((state) => state.categories.categories);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText("Вы успешно добавили изображение");
     setInpstyle(styles.inputfil);
     setImage(e.target.files);
   };
-  const handleClick = (id) => {
+  const handleClick = (id: string) => {
     setCat(id);
   };
 
-  const handleSubmit = () => {
+  const navigate = useNavigate();
+  const handleSubmit = (): void => {
     dispatch(
       createProduct({
         image,
@@ -56,9 +60,12 @@ const AddProduct: React.FC = () => {
         price,
         title,
         phone,
-        adress,
+        address,
       })
     );
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   useEffect(() => {
@@ -117,7 +124,7 @@ const AddProduct: React.FC = () => {
               <Input
                 value={adress}
                 onChange={handleChangeAdress}
-                placeholder="Адресс"
+                placeholder="Адрес"
               />
             </Form.Item>
             <Form.Item>

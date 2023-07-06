@@ -7,15 +7,12 @@ import {
 } from "../../features/favoritesSlice";
 import { oneProductsFind } from "../../features/productsSlice";
 import styles from "./Favorites.module.css";
-// import heart from '../../assets/heart.svg'
+import heart from '../../assets/heart.svg'
 import heartRed from "../../assets/heart-red.svg";
 import Header from "../Header/Header";
 
 export default function Favorites() {
   const dispatch = useDispatch();
-  const product = useSelector((state) => state.products.oneProduct);
-  const user = useSelector((state) => state.products.user);
-  const loading = useSelector((state) => state.products.loading);
   const favorites = useSelector((state) => state.favorites.favorites);
   const token = useSelector((state) => state.application.token);
 
