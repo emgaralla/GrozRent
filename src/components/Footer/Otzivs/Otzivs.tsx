@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { fetchUser } from "../../../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteOtziv,

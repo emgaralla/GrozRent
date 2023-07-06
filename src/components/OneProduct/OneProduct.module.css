@@ -64,3 +64,53 @@
   font-size: 14px;
 }
 
+.nono{
+  display: none;
+}
+
+.avatarName{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.deleteBut{
+background: #fff;
+font-size: small;
+border: 1px solid rgb(41, 149, 195);
+border-radius: 5px;
+padding: 5px 8px;
+margin-top: 10px;
+}
+
+.blockForComments{
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blockInput{
+  display: flex;
+  margin-bottom: 70px;
+}
+
+.addBut{
+  border: 1px solid rgb(14, 196, 206);
+  border-radius: 5px;
+  padding: 7px 15px;
+  font-size: medium;
+  background: #1db9f1;
+  color: #fff;
+  font-weight: 500;
+}
+
+.linkOtzivi{
+  border: 1px solid rgb(14, 196, 206);
+  border-radius: 5px;
+  padding: 7px 15px;
+  font-size: medium;
+  background: #1db9f1;
+  color: #fff;
+  font-weight: 500;
+}
