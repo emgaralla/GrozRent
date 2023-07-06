@@ -8,6 +8,8 @@ import {
 import Header from "../../Header/Header";
 import Footer from "../Footer";
 import styles from "./Otzivs.module.css";
+import { UserOutlined } from "@ant-design/icons";
+import { Avatar, Space } from "antd";
 import { Input } from "antd";
 import { Link } from "react-router-dom";
 const { TextArea } = Input;
@@ -55,24 +57,41 @@ const Otzivs = () => {
   return (
     <div>
       <Header />
-      <h2>Ваши отзывы и пожелaния для нашего сайта!</h2>
+    <div className={styles.otzivv}>
+     <div className={styles.blockFor}>  <h2 className={styles.textOt}>Ваши отзывы и пожелaния для нашего сайта!</h2> </div>
       {otzivs.map((item) => {
         return (
           <div key={item._id} className={styles.blockForOtzivs}>
-            <div className={styles.name}>{item.user.name}</div>
+            <div className={styles.avatarName}>
+              <Space direction="vertical" size={16}>
+                <Avatar icon={<UserOutlined />} />
+              </Space>
+              <div className={styles.name}>
+                <>
+                  {" "}
+                  <>
+                    {" "}
+                    {item.user.name} {item.user.lastName}
+                  </>
+                </>
+              </div>
+            </div>
             <div>{item.text}</div>
             <div>
               {token && parseJWT(token) === item.user._id ? (
                 <button
-                  onClick={() => handleRemove(item._id)}
-                  type="button"
-                  className="btn-close"
-                  aria-label="Close"
-                ></button>
+                onClick={() => handleRemove(item._id)}
+                type="button"
+                className={styles.deleteBut}
+                aria-label="Close"
+                >
+                  Delete
+                </button>
               ) : (
                 " "
-              )}
+                )}
             </div>
+                <hr />
           </div>
         );
       })}
@@ -93,6 +112,7 @@ const Otzivs = () => {
           Чтобы оставить отзыв вы должны зайти в ваш аккаунт
         </Link>
       )}
+      </div>
       <Footer />
     </div>
   );
