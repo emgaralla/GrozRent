@@ -25,7 +25,6 @@ const EditingMyAd = () => {
   const handleChangeAd = () => {
     console.log(1);
   };
-  console.log(oneProduct);
 
   return (
     <div className={styles.fullAd}>

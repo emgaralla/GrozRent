@@ -68,8 +68,8 @@ const SignIn = () => {
             Войти
           </Button>
         </Form.Item>
-      </Form>
       <p>{error}</p>
+      </Form>
     </div>
   );
 };

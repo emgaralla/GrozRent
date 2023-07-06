@@ -1,5 +1,12 @@
 import "./App.css";
-import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import SignIn from "./components/Sign/SignIn";
 import SignUp from "./components/Sign/SignUp";
 import Header from "./components/Header/Header";
@@ -22,8 +29,6 @@ import EditingMyAd from "./components/MyAd/EditingMyAd";
 function App() {
   const location = useLocation();
   const token = useSelector((state) => state.application.token);
-    
-  
 
   return (
     <div className="back">
@@ -36,6 +41,7 @@ function App() {
       {location.pathname === "/" && <Products />}
       {location.pathname === "/" && <Footer />}
       <Routes>
+        <Route path="/auth" element={<SignUp />}></Route>
         <Route path="/:id" element={<OneProduct />} />
         {token ? (
           <>
@@ -64,13 +70,12 @@ function App() {
         <Route path="/otzivs" element={<Otzivs />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/addproduct" element={<AddProduct />}></Route>
-        <Route path="/category/:id" element={<ContentOnCat />}/>
+        <Route path="/category/:id" element={<ContentOnCat />} />
         {!token ? (
           <Route path="/login" element={<SignIn />} />
         ) : (
           <Route path="/login" element={<Navigate to={"/"} />} />
         )}
-        <Route path="/auth" element={<SignUp />}></Route>
       </Routes>
     </div>
   );
