@@ -2,17 +2,18 @@ import React, { useEffect, useRef } from "react";
 import styles from "./HeaderPopUp.module.css";
 import user from "../../assets/user.png";
 import "boxicons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import { authSignOut } from "../../features/applicationSlice";
+import Header from "../Header/Header";
 
 const HeaderPopUp = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const dispatch = useDispatch<AppDispatch>()
-  const token = useSelector((state:RootState) => state.application.token)
+  const dispatch = useDispatch<AppDispatch>();
+  const token = useSelector((state: RootState) => state.application.token);
 
   const onClickPopUp = () => {
     setIsOpen(!isOpen);
@@ -32,9 +33,13 @@ const HeaderPopUp = () => {
   }, []);
 
   const handleSignOut = () => {
-    dispatch(authSignOut())
-  }
+    dispatch(authSignOut());
+  };
 
+
+  const handleFavorites = () => {
+    dispatch(createBasket());
+  };
   return (
     <div className={styles.main}>
       <Link to="/annoucment">Сдать в аренду</Link>
@@ -51,9 +56,11 @@ const HeaderPopUp = () => {
         ? isOpen && (
             <div className={styles.popUp}>
               <Link to="/my-ad">Мои объявления</Link>
-              <Link to='/favorites'>Избранное</Link>
+              <Link to={'/favorites'} onClick={handleFavorites}>Избранное</Link>
               <Link to="/settings">Настройки</Link>
-              <Link to="/" onClick={handleSignOut}>Выход</Link>
+              <Link to="/" onClick={handleSignOut}>
+                Выход
+              </Link>
             </div>
           )
         : isOpen && (

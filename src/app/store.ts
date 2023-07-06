@@ -14,7 +14,8 @@ export const store = configureStore({
     products,
     user,
     otzivs,
-    comments
+    comments,
+    favorites,
   },
 });
 

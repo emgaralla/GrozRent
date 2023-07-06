@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authSignIn } from "../../features/applicationSlice";
 import { Button, Checkbox, Form, Input } from "antd";
-import styles from './Sign.module.css'
+import styles from "./Sign.module.css";
+import { createBasket } from "../../features/favoritesSlice";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -17,6 +19,8 @@ const SignIn = () => {
   const handleChangePassword = (e) => {
     setPassword(e.target.value);
   };
+
+  const navigate = useNavigate();
 
   const handleClick = () => {
     dispatch(authSignIn({ email, password }));
@@ -68,7 +72,7 @@ const SignIn = () => {
             Войти
           </Button>
         </Form.Item>
-      <p>{error}</p>
+        <p>{error}</p>
       </Form>
     </div>
   );

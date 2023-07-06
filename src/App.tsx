@@ -50,8 +50,6 @@ function App() {
             <Route path="/annoucment" element={<Annoucment />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/my-ad" element={<MyAd />} />
-            <Route path="/login" element={<Navigate to={"/"} />} />
-
             <Route path='/favorites' element={<Favorites />} />
 
             <Route

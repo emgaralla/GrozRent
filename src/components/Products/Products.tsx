@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../features/productsSlice";
 import styles from "./Products.module.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { getFavoritesUser } from "../../features/favoritesSlice";
+import { createBasket, getFavoritesUser } from "../../features/favoritesSlice";
 
 const Products = () => {
   const products = useSelector((state) => state.products.products);
@@ -12,11 +12,15 @@ const Products = () => {
   const navigate = useNavigate("/");
 
   const handleClick = (id) => {
-    navigate(id);
+    dispatch(createBasket());
+    setTimeout(() => {
+
+      navigate(id);
+    },300)
   };
 
   useEffect(() => {
-    dispatch(fetchProducts())
+    dispatch(fetchProducts());
     // dispatch(getFavoritesUser());
   }, []);
 
@@ -33,7 +37,12 @@ const Products = () => {
   return (
     <>
       <div className={styles.liveSearch}>
-        <input className={styles.input} onChange={handleChange} value={search} type="text" />
+        <input
+          className={styles.input}
+          onChange={handleChange}
+          value={search}
+          type="text"
+        />
       </div>
       <div className={styles.products}>
         {searched.map((item) => {
@@ -42,7 +51,10 @@ const Products = () => {
               onClick={() => handleClick(item._id)}
               className={styles.productsBlock}
             >
-              <img src={`http://localhost:4000/${item.image[0]?.path}`} alt="" />
+              <img
+                src={`http://localhost:4000/${item.image[0]?.path}`}
+                alt=""
+              />
               <h4>{item.title}</h4>
               <p>{item.adress}</p>
               <h5>{item.price} ₽ сутки</h5>

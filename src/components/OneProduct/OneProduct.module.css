@@ -42,8 +42,6 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
-  /* position: absolute; */
-  /* z-index: 112013; */
 }
 .favoriteButton img {
   width: 25px;
@@ -54,12 +52,12 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
-  /* background-color: red; */
 }
 .favoriteButtonAdded img {
   width: 25px;
   height: 25px;
   margin: 0;
+}
 
 .nameBlock2 {
   width: 400px;
@@ -86,38 +84,38 @@
   font-size: 14px;
 }
 
-.nono{
+.nono {
   display: none;
 }
 
-.avatarName{
+.avatarName {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.deleteBut{
-background: #fff;
-font-size: small;
-border: 1px solid rgb(41, 149, 195);
-border-radius: 5px;
-padding: 5px 8px;
-margin-top: 10px;
+.deleteBut {
+  background: #fff;
+  font-size: small;
+  border: 1px solid rgb(41, 149, 195);
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin-top: 10px;
 }
 
-.blockForComments{
+.blockForComments {
   width: 700px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.blockInput{
+.blockInput {
   display: flex;
   margin-bottom: 70px;
 }
 
-.addBut{
+.addBut {
   border: 1px solid rgb(14, 196, 206);
   border-radius: 5px;
   padding: 7px 15px;
@@ -127,7 +125,7 @@ margin-top: 10px;
   font-weight: 500;
 }
 
-.linkOtzivi{
+.linkOtzivi {
   border: 1px solid rgb(14, 196, 206);
   border-radius: 5px;
   padding: 7px 15px;
