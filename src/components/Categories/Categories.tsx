@@ -2,10 +2,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../features/categoriesSlice";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./Categories.module.css";
 
 const Categories = () => {
+  const id = useParams();
   const dispatch = useDispatch();
   const categories = useSelector((state: any) => state.categories.categories);
   useEffect(() => {
@@ -18,7 +19,7 @@ const Categories = () => {
         {categories.map((item) => {
           return (
             <Link
-              className={styles.listBlock}
+              className={(id.id !== item._id) ? styles.listBlock : styles.listBlock1}
               to={`/category/${item._id}`}
               key={item._id}
             >

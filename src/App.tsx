@@ -1,5 +1,12 @@
 import "./App.css";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import SignIn from "./components/Sign/SignIn";
 import SignUp from "./components/Sign/SignUp";
 import Header from "./components/Header/Header";
@@ -10,13 +17,16 @@ import Products from "./components/Products/Products";
 import AddProduct from "./components/AddProduct/AddProduct";
 import { useSelector } from "react-redux";
 import AboutUs from "./components/Footer/About Us/AboutUs";
-import Map from "./components/Footer/Map/Map";
 import Conditionss from "./components/Footer/Conditions/Conditionss";
 import Confidentiality from "./components/Footer/Confidentiality/Confidentiality";
+import ContentOnCat from "./components/Categories/ContentOnCat";
+import Otzivs from "./components/Footer/Otzivs/Otzivs";
 import Settings from "./components/Settings";
 import OneProduct from "./components/OneProduct/OneProduct";
 import MyAd from "./components/MyAd";
 import Favorites from "./components/Favorites/Favorites";
+import EditingMyAd from "./components/MyAd/EditingMyAd";
+
 
 function App() {
   const location = useLocation();
@@ -24,7 +34,6 @@ function App() {
 
   return (
     <div className="back">
-      
       {location.pathname === "/" && <Header />}
       {location.pathname === "/my-ad" && <Header />}
       {location.pathname === "/settings" && <Header />}
@@ -34,6 +43,7 @@ function App() {
       {location.pathname === "/" && <Products />}
       {location.pathname === "/" && <Footer />}
       <Routes>
+        <Route path="/auth" element={<SignUp />}></Route>
         <Route path="/:id" element={<OneProduct />} />
         {token ? (
           <>
@@ -41,20 +51,37 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/my-ad" element={<MyAd />} />
             <Route path="/login" element={<Navigate to={"/"} />} />
+
             <Route path='/favorites' element={<Favorites />} />
+
+            <Route
+              path="/my-ad/:id"
+              element={
+                <>
+                  <Header /> <EditingMyAd />
+                </>
+              }
+            />
+
           </>
         ) : (
           <>
             <Route path="/annoucment" element={<Navigate to={"/login"} />} />
             <Route path="/login" element={<SignIn />} />
+            <Route path="/my-ad/:id" element={<Navigate to={"/"} />} />
           </>
         )}
         <Route path="/confidentiality" element={<Confidentiality />} />
         <Route path="/conditions" element={<Conditionss />} />
-        <Route path="/map" element={<Map />} />
+        <Route path="/otzivs" element={<Otzivs />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/addproduct" element={<AddProduct />}></Route>
-        <Route path="/auth" element={<SignUp />}></Route>
+        <Route path="/category/:id" element={<ContentOnCat />} />
+        {!token ? (
+          <Route path="/login" element={<SignIn />} />
+        ) : (
+          <Route path="/login" element={<Navigate to={"/"} />} />
+        )}
       </Routes>
     </div>
   );

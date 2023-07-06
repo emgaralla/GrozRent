@@ -8,27 +8,30 @@
   display: flex;
   justify-content: space-between;
 }
+
 .imgBlock1 {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .imgBlock1 :nth-child(2) {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 
 .imgBlock1 :nth-child(3) {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 .imgBlock1 :nth-child(4) {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 .imgBlock1 :nth-child(5) {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 
 .imgBlock1 :first-child {
@@ -57,4 +60,79 @@
   width: 25px;
   height: 25px;
   margin: 0;
+
+.nameBlock2 {
+  width: 400px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px 1px rgba(34, 60, 80, 0.2);
+  border-radius: 15px;
+  border: 1px solid rgba(177, 177, 177, 0.596);
+}
+
+.nameBlock1 {
+  width: 60%;
+}
+
+.nameBlock1 hr {
+  margin: 20px 0px;
+}
+
+.oneProductBlock a {
+  margin-bottom: 10px;
+}
+
+.linkOtzivi {
+  color: black;
+  font-size: 14px;
+}
+
+.nono{
+  display: none;
+}
+
+.avatarName{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.deleteBut{
+background: #fff;
+font-size: small;
+border: 1px solid rgb(41, 149, 195);
+border-radius: 5px;
+padding: 5px 8px;
+margin-top: 10px;
+}
+
+.blockForComments{
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blockInput{
+  display: flex;
+  margin-bottom: 70px;
+}
+
+.addBut{
+  border: 1px solid rgb(14, 196, 206);
+  border-radius: 5px;
+  padding: 7px 15px;
+  font-size: medium;
+  background: #1db9f1;
+  color: #fff;
+  font-weight: 500;
+}
+
+.linkOtzivi{
+  border: 1px solid rgb(14, 196, 206);
+  border-radius: 5px;
+  padding: 7px 15px;
+  font-size: medium;
+  background: #1db9f1;
+  color: #fff;
+  font-weight: 500;
 }

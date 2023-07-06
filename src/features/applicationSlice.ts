@@ -9,11 +9,11 @@ const initialState = {
 
 export const authSignUp = createAsyncThunk(
   "auth/signUp",
-  async ({ name, lastName, email, password }, thunkAPI) => {
+  async ({ name, lastName, email, password, phone }, thunkAPI) => {
     try {
       const res = await fetch("http://localhost:4000/auth", {
         method: "POST",
-        body: JSON.stringify({ name, lastName, email, password }),
+        body: JSON.stringify({ name, lastName, email, password, phone }),
         headers: {
           "Content-type": "application/json",
         },
@@ -34,7 +34,6 @@ export const authSignUp = createAsyncThunk(
 export const authSignIn = createAsyncThunk(
   "auth/signIn",
   async ({ email, password }, thunkAPI) => {
-    
     try {
       const res = await fetch("http://localhost:4000/login", {
         method: "POST",
@@ -63,7 +62,6 @@ export const authSignOut = createAsyncThunk(
     try {
       localStorage.removeItem("token");
       window.location.reload();
-      
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -71,14 +69,13 @@ export const authSignOut = createAsyncThunk(
 );
 
 const applicationSlice = createSlice({
-  name: "apllication",
+  name: "application",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(authSignUp.pending, (state) => {
         state.signingUp = true;
-        state.error = null;
       })
       .addCase(authSignUp.rejected, (state, action) => {
         state.signinUp = false;
@@ -88,9 +85,7 @@ const applicationSlice = createSlice({
         state.signinUp = false;
         state.error = null;
       })
-
       .addCase(authSignIn.pending, (state) => {
-        state.signingUp = true;
         state.error = null;
       })
       .addCase(authSignIn.rejected, (state, action) => {

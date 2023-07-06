@@ -26,7 +26,6 @@ const Settings = () => {
     dispatch(
       handleChangeUser({ nameValue, lastNameValue, emailValue, phoneValue })
     );
-
     setEditName(true);
     setEditLastName(true);
     setEditEmail(true);

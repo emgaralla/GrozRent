@@ -15,7 +15,6 @@ const AddProduct: React.FC = () => {
   const [price, setPrice] = useState("");
   const [textArea, setTextArea] = useState("");
   const [image, setImage] = useState("");
-  console.log(image)
   const [inpStyle, setInpstyle] = useState(styles.inputfile);
   const [text, setText] = useState("Добавить изображение");
 

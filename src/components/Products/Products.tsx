@@ -11,7 +11,6 @@ const Products = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate("/");
 
-  // console.log(products)
   const handleClick = (id) => {
     navigate(id);
   };
@@ -43,7 +42,7 @@ const Products = () => {
               onClick={() => handleClick(item._id)}
               className={styles.productsBlock}
             >
-              <img src={`http://localhost:4000/${item.image[0].path}`} alt="" />
+              <img src={`http://localhost:4000/${item.image[0]?.path}`} alt="" />
               <h4>{item.title}</h4>
               <p>{item.adress}</p>
               <h5>{item.price} ₽ сутки</h5>
