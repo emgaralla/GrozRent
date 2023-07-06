@@ -16,6 +16,7 @@ import Confidentiality from "./components/Footer/Confidentiality/Confidentiality
 import Settings from "./components/Settings";
 import OneProduct from "./components/OneProduct/OneProduct";
 import MyAd from "./components/MyAd";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const location = useLocation();
@@ -40,6 +41,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/my-ad" element={<MyAd />} />
             <Route path="/login" element={<Navigate to={"/"} />} />
+            <Route path='/favorites' element={<Favorites />} />
           </>
         ) : (
           <>

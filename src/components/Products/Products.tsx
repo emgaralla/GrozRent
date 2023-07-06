@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../features/productsSlice";
 import styles from "./Products.module.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { getFavoritesUser } from "../../features/favoritesSlice";
 
 const Products = () => {
   const products = useSelector((state) => state.products.products);
@@ -10,13 +11,14 @@ const Products = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate("/");
 
-  console.log(products)
+  // console.log(products)
   const handleClick = (id) => {
     navigate(id);
   };
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchProducts())
+    // dispatch(getFavoritesUser());
   }, []);
 
   const searched = products.filter((item) => {
