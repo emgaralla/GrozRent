@@ -51,6 +51,7 @@ const HeaderPopUp = () => {
         ? isOpen && (
             <div className={styles.popUp}>
               <Link to="/my-ad">Мои объявления</Link>
+              <Link to='/favorites'>Избранное</Link>
               <Link to="/settings">Настройки</Link>
               <Link to="/" onClick={handleSignOut}>Выход</Link>
             </div>

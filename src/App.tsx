@@ -24,7 +24,9 @@ import Otzivs from "./components/Footer/Otzivs/Otzivs";
 import Settings from "./components/Settings";
 import OneProduct from "./components/OneProduct/OneProduct";
 import MyAd from "./components/MyAd";
+import Favorites from "./components/Favorites/Favorites";
 import EditingMyAd from "./components/MyAd/EditingMyAd";
+
 
 function App() {
   const location = useLocation();
@@ -49,6 +51,9 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/my-ad" element={<MyAd />} />
             <Route path="/login" element={<Navigate to={"/"} />} />
+
+            <Route path='/favorites' element={<Favorites />} />
+
             <Route
               path="/my-ad/:id"
               element={
@@ -57,6 +62,7 @@ function App() {
                 </>
               }
             />
+
           </>
         ) : (
           <>
