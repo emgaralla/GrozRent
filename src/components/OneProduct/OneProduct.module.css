@@ -10,8 +10,6 @@
 }
 
 .imgBlock1 {
-  display: flex;
-  flex-wrap: wrap;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -19,6 +17,7 @@
 .imgBlock1 :nth-child(2) {
   width: 200px;
   height: 200px;
+
 }
 
 .imgBlock1 :nth-child(3) {
