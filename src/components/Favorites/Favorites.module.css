@@ -1,6 +1,7 @@
 .productsBlock {
   width: 320px;
   border-radius: 10px;
+  transition: all 0.5s ease;
   padding: 15px;
 }
 .productsBlock img {
@@ -49,7 +50,9 @@
 
 .favoritesBack {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 6px;
+  row-gap: 30px;
   flex-wrap: wrap;
 }
 .favoriteButton {

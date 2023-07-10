@@ -4,18 +4,20 @@
   border: 1px solid rgba(223, 219, 219, 0.42);
   border-radius: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-left: 10px;
   cursor: pointer;
   transition: 0.3s;
+  padding: 0 5px 0 10px;
 }
 .block:hover{
-  box-shadow: -1px 4px 11px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 4px 6px 0px rgba(34, 60, 80, 0.2);
+  /* box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.2); */
 }
 
 .hrs {
-  margin-top: 3.5px;
+  margin-top: 6px;
 }
 
 .avatarBack img {
@@ -40,6 +42,7 @@
 }
 
 .main a {
+  padding: 5px 10px;
   text-decoration: none;
   font-size: 16px;
   color: black;
@@ -51,13 +54,13 @@
 }
 
 .main a:hover {
-  padding: 5px 0px 5px 10px;
+  padding: 5px 10px;
   background: rgba(189, 186, 186, 0.199);
-  border-radius: 10px;
-  
+  border-radius: 30px;
 }
 
 .popUp{
+  width: 203px;
   position: absolute;
   top: 55px;
   right: 0;

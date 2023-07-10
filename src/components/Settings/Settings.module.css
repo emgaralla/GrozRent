@@ -4,7 +4,7 @@
 
 .settingsBlock {
     width: 900px;
-    box-shadow: 0px 0px 6px 1px black;
+    box-shadow: 0px 0px 10px grey;
     padding: 25px;
     border-radius: 10px;
 }
